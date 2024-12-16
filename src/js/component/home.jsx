@@ -1,26 +1,20 @@
-import React from "react";
+import React, { useState } from 'react';
 
-//include images into your bundle
-import rigoImage from "../../img/rigo-baby.jpg";
-
-//create your first component
 const Home = () => {
+
+	const [switchon, setSwitchOn] =useState("red")
+
 	return (
-		<div className="text-center">
-			<h1 className="text-center mt-5">Hello Rigo!</h1>
-			<p>
-				<img src={rigoImage} />
-			</p>
-			<a href="#" className="btn btn-success">
-				If you see this green button... bootstrap is working...
-			</a>
-			<p>
-				Made by{" "}
-				<a href="http://www.4geeksacademy.com">4Geeks Academy</a>, with
-				love!
-			</p>
+		<div className='container'>
+			<div className="traffic light holder bg-dark" ></div>
+		  		<div className="traffic-light bg-dark">
+			  		<div className={`bulb red light bg-danger round-circle ${switchon == "red" ? "iluminado":""}`} onClick={()=>setSwitchOn("red")}></div>
+			  		<div className= {`bulb yellow light bg-warning round-circle ${switchon == "yellow" ? "iluminado":""}`} onClick={()=>setSwitchOn("yellow")}></div>
+			  		<div className= {`bulb green light bg-success round-circle ${switchon == "green" ? "iluminado":""}`} onClick={()=>setSwitchOn("green")}></div>
+		        </div>
 		</div>
 	);
 };
+
 
 export default Home;
